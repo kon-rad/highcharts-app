@@ -1,7 +1,9 @@
 import React from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
+import HighchartExample2 from './components/HighchartExample2';
 
 const options = {
   title: {
@@ -19,6 +21,7 @@ function App() {
       highcharts={Highcharts}
       options={options}
     />
+      <HighchartExample2 />
 
     </div>
   );
