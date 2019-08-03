@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Grid, Table, TableHeaderRow, PagingPanel } from '@devexpress/dx-react-grid-bootstrap4';
 import {
   PagingState,
@@ -7,39 +7,38 @@ import {
 import businessLicenseData from '../data/rows-city-business-licenses.json';
 
 const COLUMNS = businessLicenseData.meta.view.columns.map(e => ({ name: e.fieldName, title: e.name }));
-const ROWS = businessLicenseData.data;
+const ROWS = businessLicenseData.data.slice(0, 100);
 const PROCESSED_ROWS
     = ROWS
         .map(e => e.map(
-            (elem, i) => {
-                console.log('inside', elem, i);
-                return ({ [COLUMNS[i].name]: elem });
-            }
+            (elem, i) => ({ [COLUMNS[i].name]: elem })
         ))
         .map(e => ({ ...e.reduce((prev, curr) => Object.assign(prev, curr), {}) }
         ));
 
-class GridView extends React.Component {
-    render() {
-        return (
-            <div className="mb5">
-                <h1>GridView</h1>
-                <Grid
-                    rows={PROCESSED_ROWS}
-                    columns={COLUMNS}
-                >
-                    <PagingState
-                        defaultCurrentPage={0}
-                        pageSize={5}
-                    />
-                    <IntegratedPaging />
-                    <Table />
-                    <TableHeaderRow />
-                    <PagingPanel />
-                </Grid>
-            </div>
-        )
-    }
-}
+export default () => {
+    const [pageSize, setPageSize] = useState(20);
 
-export default GridView;
+    return (
+        <div className="mb5">
+            <h1>GridView</h1>
+            <label for='pageSize'>
+                Page Size
+                <input name='pageSize' type='number' value={pageSize} onChange={setPageSize} />
+            </label>
+            <Grid
+                rows={PROCESSED_ROWS}
+                columns={COLUMNS}
+            >
+                <PagingState
+                    defaultCurrentPage={0}
+                    pageSize={pageSize}
+                />
+                <IntegratedPaging />
+                <Table />
+                <TableHeaderRow />
+                <PagingPanel />
+            </Grid>
+        </div>
+    )
+}
