@@ -17,9 +17,10 @@ const options = {
 
 function App() {
   return (
-    <div className="App">
+    <div className="App wrapper col-sm-12 col-md-10 offset-md-1">
       <GridView />
       <HighchartsReact
+        className="mb5"
         highcharts={Highcharts}
         options={options}
       />

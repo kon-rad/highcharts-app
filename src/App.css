@@ -1,3 +1,141 @@
+
+/* Custom properties */
+:root {
+  /* Type Scale */
+  --font-size-base: 1rem;
+  --font-size-100: 100%;
+  --h-headline: 3rem; /* 3rem = 48px */
+  --h1: 2.25rem; /* 2.25rem = 36px */
+  --h2: 1.5rem; /* 1.5rem = 24px */
+  --h3: 1.25rem; /* 1.25rem = 20px */
+  --h4: 1rem; /* 1rem = 16px */
+  --h5: 0.875rem; /* 0.875rem = 14px */
+  --h6: 0.75rem; /* 0.75rem = 12px */
+  --h7: 0.6875rem; /* 0.6875rem = 11px */
+
+  /* Typography */
+  --font-family: 'Open Sans', sans-serif;
+  --line-height-base: 1;
+  --line-height-title: 1.25;
+  --line-height-copy: 1.5;
+  --letter-spacing: 0.0625em;
+  --caps-letter-spacing: 0.1em;
+  --light-font-weight: 300;
+  --regular-font-weight: 400;
+  --semi-bold-font-weight: 600;
+  --bold-font-weight: 700;
+  --extra-bold-font-weight: 800;
+
+  /* Links */
+  --link-color: var(--action-blue);
+  --link-text-decoration: none;
+  --link-hover-text-decoration: underline;
+
+  /* Transition Time */
+  --time-0: 80ms;
+  --time-1: 150ms;
+  --time-2: 300ms;
+  --time-3: 500ms;
+
+  /* Timing Functions */
+  --cubic-default: cubic-bezier(0.22, 0.61, 0.36,1);
+
+  /* Transitions */
+  --trans-color-t0: color var(--time-0) linear;
+  --trans-color-t1: color var(--time-1) linear;
+  --trans-opacity-t0: opacity var(--time-0) linear;
+  --trans-opacity-t1: opacity var(--time-1) linear;
+  --trans-bgc-t0: background-color var(--time-0) linear;
+  --trans-bgc-t1: background-color var(--time-1) linear;
+
+  --trans-bgc-color-t0: color var(--time-0) linear, background-color var(--time-0) linear;
+  --trans-bgc-color-t1: color var(--time-1) linear, background-color var(--time-1) linear;
+
+  /* Layout */
+  --layout-min-width: 60rem; /* 60rem = 960px */
+  --layout-max-width: 120rem; /* 120rem = 1920px */
+
+  --width-1: 24rem;
+  --width-2: 32rem;
+  --width-3: 48rem;
+  --width-4: 64rem;
+
+  /* Margin, Padding */
+  --space-0: 0;
+  --space-1: 0.25rem; /* 0.25rem = 4px */
+  --space-2: 0.5rem; /* 0.5rem = 8px */
+  --space-3: 1rem; /* 1rem = 16px */
+  --space-4: 1.5rem; /* 1.5rem = 24px */
+  --space-5: 2rem; /* 2rem = 32px */
+  --space-6: 4rem; /* 4rem = 64px */
+
+  /* Position */
+  --z1: 1;
+  --z2: 2;
+  --z3: 3;
+  --z4: 4;
+  --z5: 5;
+  --z-navbar: 1000;
+  --z-modal: 99999;
+  --z-toast: 100000;
+
+  /* Border */
+  --border-width: 1px;
+  --border-radius: 3px;
+
+  /* Colors, Background, Border */
+  --brand-blue: #002e6d;
+  --action-blue: #0266d1;
+  --cobalt-blue: #0253a9;
+  --red: #e20d0d;
+  --border-red: #D0011B;
+  --light-red: #fddfdf;
+  --green: #089f5e;
+
+  --error: #e20d0d;
+  --neutral: #1397e1;
+  --positive: #2dcc70;
+  --warning: #f57c00;
+
+  --black: #333333;
+  --granite-gray: #616161;
+  --spanish-gray: #999;
+  --border-gray: #bbb;
+  --earl-gray: #bbb;
+  --platinum: #e0e0e0;
+  --white-smoke: #f5f5f5;
+  --ghost-white: #f5faff;
+  --white: #fff;
+
+  /* Darken */
+  --darken-1: rgba(0, 0, 0, 0.0625);
+  --darken-2: rgba(0, 0, 0, 0.125);
+  --darken-3: rgba(0, 0, 0, 0.25);
+  --darken-4: rgba(0, 0, 0, 0.5);
+
+  /* Lighten */
+  --lighten-1: rgba(255, 255, 255, 0.0625);
+  --lighten-2: rgba(255, 255, 255, 0.125);
+  --lighten-3: rgba(255, 255, 255, 0.25);
+  --lighten-4: rgba(255, 255, 255, 0.5);
+
+  /* Shadow */
+  --shadow-1: 0 0.0625rem 0.1875rem rgba(0,0,0,0.12), 0 0.0625rem 0.125rem rgba(0,0,0,0.24);
+  --shadow-2: 0 0.1875rem  0.375rem rgba(0,0,0,0.16), 0 0.1875rem 0.375rem rgba(0,0,0,0.23);
+  --shadow-3: 0  0.625rem   1.25rem rgba(0,0,0,0.19), 0  0.375rem 0.375rem rgba(0,0,0,0.23);
+  --shadow-4: 0  0.875rem   1.75rem rgba(0,0,0,0.25), 0  0.625rem 0.625rem rgba(0,0,0,0.22);
+  --shadow-5: 0 1.1875rem  2.375rem rgba(0,0,0,0.30), 0 0.9375rem  0.75rem rgba(0,0,0,0.22);
+  --shadow-6: 0 0.125rem 0.25rem 0 rgba(0,0,0,0.20), 0 0.0625rem 0.3125rem 0 rgba(0,0,0,0.13);
+
+  --shadow-1-up: 0 -0.0625rem 0.1875rem rgba(0,0,0,0.12), 0 -0.0625rem 0.125rem rgba(0,0,0,0.24);
+  --shadow-2-up: 0 -0.1875rem  0.375rem rgba(0,0,0,0.16), 0 -0.1875rem 0.375rem rgba(0,0,0,0.23);
+  --shadow-3-up: 0  -0.625rem   1.25rem rgba(0,0,0,0.19), 0  -0.375rem 0.375rem rgba(0,0,0,0.23);
+  --shadow-4-up: 0  -0.875rem   1.75rem rgba(0,0,0,0.25), 0  -0.625rem 0.625rem rgba(0,0,0,0.22);
+  --shadow-5-up: 0 -1.1875rem  2.375rem rgba(0,0,0,0.30), 0 -0.9375rem  0.75rem rgba(0,0,0,0.22);
+}
+
+
+
 .App {
   text-align: center;
 }
@@ -21,6 +159,19 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.wrapper {
+  margin-top: 60px;
+  margin-bottom: 120px;
+}
+
+.mt5 {
+  margin-top: var(--space-5);
+}
+
+.mb5 {
+  margin-bottom: var(--space-5);
 }
 
 @keyframes App-logo-spin {

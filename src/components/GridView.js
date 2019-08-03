@@ -1,9 +1,13 @@
 import React from 'react';
-import { Grid, Table, TableHeaderRow } from '@devexpress/dx-react-grid-bootstrap4';
+import { Grid, Table, TableHeaderRow, PagingPanel } from '@devexpress/dx-react-grid-bootstrap4';
+import {
+  PagingState,
+  IntegratedPaging,
+} from '@devexpress/dx-react-grid';
 import businessLicenseData from '../data/rows-city-business-licenses.json';
 
 const COLUMNS = businessLicenseData.meta.view.columns.map(e => ({ name: e.fieldName, title: e.name }));
-const ROWS = businessLicenseData.data.slice(0, 100);
+const ROWS = businessLicenseData.data;
 const PROCESSED_ROWS
     = ROWS
         .map(e => e.map(
@@ -18,13 +22,20 @@ const PROCESSED_ROWS
 class GridView extends React.Component {
     render() {
         return (
-            <div>
+            <div className="mb5">
                 <h1>GridView</h1>
                 <Grid
                     rows={PROCESSED_ROWS}
-                    columns={COLUMNS}>
-                <Table />
-                <TableHeaderRow />
+                    columns={COLUMNS}
+                >
+                    <PagingState
+                        defaultCurrentPage={0}
+                        pageSize={5}
+                    />
+                    <IntegratedPaging />
+                    <Table />
+                    <TableHeaderRow />
+                    <PagingPanel />
                 </Grid>
             </div>
         )

@@ -37,7 +37,7 @@ class HighchartExample2 extends React.PureComponent {
     }
     render() {
         return (
-            <div>
+            <div className="mb5">
                 <h2>Highchart Example 2</h2>
                 <div ref={node => (this.node = node)} />
             </div>
